@@ -46,9 +46,18 @@
 }
 
 .survey_base_info_block {
-    background-color: #61dafb;
     border-radius: 5px;
     padding: 8px;
+}
+
+.survey_base_info_color_active {
+    background-color: #DEF4C7;
+    color: #72B04C;
+
+}
+
+.survey_second_info_color {
+    background-color: #F1F4F7;
 }
 
 .main_survey_info > img {
@@ -64,4 +73,11 @@
 
 .public_date {
     margin: 5px 5px 10px;
+}
+
+.survey_info_with_icon {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 5px;
 }
