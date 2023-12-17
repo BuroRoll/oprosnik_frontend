@@ -1,6 +1,6 @@
 import axios from "axios";
 
-export let API_URL = 'http://2200641-cq40245.tw1.ru'
+export let API_URL = 'https://2200641-cq40245.tw1.ru'
 
 let $api = axios.create({
     baseURL: API_URL
