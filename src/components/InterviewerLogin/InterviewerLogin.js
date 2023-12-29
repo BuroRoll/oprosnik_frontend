@@ -1,16 +1,16 @@
 import React, {useState} from 'react';
 import {Navigate, useNavigate} from 'react-router-dom';
-import './login.css';
+import '../Login/login.css';
 import useToken from "../../data/useToken";
 // import Header from "../Header/Header";
 // import logoUrl from "../../static/img/logo.svg";
 import $api from '../../api/api_settings'
 import login_img from '../../static/img/login_img.png'
 
-const Login = () => {
+const LoginInterviewer = () => {
     const [login, setLogin] = useState();
     const [password, setPassword] = useState();
-    const {token, setToken} = useToken();
+    const [token, setToken] = useState();
     const [error, setError] = useState(null);
     const navigate = useNavigate()
 
@@ -25,13 +25,15 @@ const Login = () => {
 
     const loginUser = (credentials) => {
         console.log(credentials)
-        $api.post('/auth/respondent-login',
+        $api.post('/auth/interviewer-login',
             {username: credentials.login, password: credentials.password},
             {headers:{'accept' : 'application/json', "Content-Type":"application/x-www-form-urlencoded"}})
             .then(res => {
                 if (res.status === 200) {
                     console.log(res)
-                    setToken(res.data)
+                    console.log(res.data.access_token)
+                    localStorage.setItem("token", res.data.access_token)
+                    console.log(localStorage.getItem("token"))
                     navigate("/profile/main", {replace: true})
                 }
             })
@@ -55,7 +57,7 @@ const Login = () => {
                 </div>
                 <div id='right'>
                     <div className='block right_block'>
-                        <div><h1>Вход в аккаунт</h1></div>
+                        <div><h1>Вход в аккаунт Интервьювера</h1></div>
                         {/*<div>Войдите с существующим аккаунтом</div>*/}
                         {/*<div>Или с помощью электронной почты</div>*/}
                         <form onSubmit={handleSubmit} className="login_form">
@@ -98,4 +100,4 @@ const Login = () => {
     }
 }
 
-export default Login
+export default LoginInterviewer

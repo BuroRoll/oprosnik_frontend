@@ -1,5 +1,5 @@
 import React from 'react';
-import './SurveyBlock.css';
+import './SurveyBlockSmall.css';
 import survey_image from '../../static/img/survey_image.png'
 import survey_status_active from '../../static/icons/active_survey_icon.png'
 import survey_price_active from '../../static/icons/activ_survey_icon_price.png'
@@ -8,7 +8,7 @@ import survey_price_active from '../../static/icons/activ_survey_icon_price.png'
 import useToken from "../../data/useToken";
 
 
-const SurveyBlock = (props) => {
+const SurveyBlockSmall = () => {
     const {token, setToken} = useToken();
     // const isTabletOrMobile = useMediaQuery({query: '(max-width: 1224px)'})
 
@@ -40,4 +40,4 @@ const SurveyBlock = (props) => {
 
 }
 
-export default SurveyBlock;
+export default SurveyBlockSmall;
